@@ -1,0 +1,432 @@
+openapi: 3.0.1
+info:
+    title: HCP Website API
+    description: API for the Project Portfolio
+    version: 1.0.0
+servers:
+    - url: "http://localhost:8080"
+      description: "Local server"
+    - url: _______________________
+      description: "Deployment server"
+paths:
+    /member:
+        post:
+            summary: Create a member
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/Member"
+            responses:
+                "200":
+                    description: Member created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Member"
+        get:
+            summary: Get all members
+            responses:
+                "200":
+                    description: Members found
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/Member"
+    /member/{userId}:
+        get:
+            summary: Get a member by id
+            parameters:
+                - in: path
+                  name: userId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The member id
+            responses:
+                "200":
+                    description: Member found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Member"
+                "404":
+                    description: Member not found
+        delete:
+            summary: Delete a member by id
+            parameters:
+                - in: path
+                  name: userId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The member id
+            responses:
+                "200":
+                    description: Member deleted
+                "404":
+                    description: Member not found
+        put:
+            summary: Update a member
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/Member"
+            responses:
+                "200":
+                    description: Member updated
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Member"
+                "404":
+                    description: Member not found
+    /member/email/{email}:
+        get:
+            summary: Get a member by email
+            parameters:
+                - in: path
+                  name: email
+                  schema:
+                      type: string
+                  required: true
+                  description: The member email
+            responses:
+                "200":
+                    description: Member found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Member"
+                "404":
+                    description: Member not found
+    /member/project/{projectId}:
+        get:
+            summary: Get members by project
+            parameters:
+                - in: path
+                  name: projectId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The project id
+            responses:
+                "200":
+                    description: Members found
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/Member"
+                "404":
+                    description: Members not found
+    /member/role/{role}:
+        get:
+            summary: Get members by role
+            parameters:
+                - in: path
+                  name: role
+                  schema:
+                      type: string
+                  required: true
+                  description: The member role
+            responses:
+                "200":
+                    description: Members found
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/Member"
+                "404":
+                    description: Members not found
+    /project:
+        post:
+            summary: Create a project
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/Project"
+            responses:
+                "200":
+                    description: Project created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Project"
+        get:
+            summary: Get all projects
+            responses:
+                "200":
+                    description: Projects found
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/Project"
+    /project/{projectId}:
+        get:
+            summary: Get a project by id
+            parameters:
+                - in: path
+                  name: projectId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The project id
+            responses:
+                "200":
+                    description: Project found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Project"
+                "404":
+                    description: Project not found
+        delete:
+            summary: Delete a project by id
+            parameters:
+                - in: path
+                  name: projectId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The project id
+            responses:
+                "200":
+                    description: Project deleted
+                "404":
+                    description: Project not found
+        put:
+            summary: Update a project
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/Project"
+            responses:
+                "200":
+                    description: Project updated
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Project"
+                "404":
+                    description: Project not found
+    /project/member/{userId}:
+        get:
+            summary: Get a project by member id
+            parameters:
+                - in: path
+                  name: userId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The member id
+            responses:
+                "200":
+                    description: Project found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Project"
+                "404":
+                    description: Project not found
+    /event:
+        post:
+            summary: Create an event
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/Event"
+            responses:
+                "200":
+                    description: Event created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Event"
+        get:
+            summary: Get all events
+            responses:
+                "200":
+                    description: Events found
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/Event"
+    /event/{eventId}:
+        get:
+            summary: Get an event by id
+            parameters:
+                - in: path
+                  name: eventId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The event id
+            responses:
+                "200":
+                    description: Event found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Event"
+                "404":
+                    description: Event not found
+        delete:
+            summary: Delete an event by id
+            parameters:
+                - in: path
+                  name: eventId
+                  schema:
+                      type: integer
+                  required: true
+                  description: The event id
+            responses:
+                "200":
+                    description: Event deleted
+                "404":
+                    description: Event not found
+        put:
+            summary: Update an event
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/Event"
+            responses:
+                "200":
+                    description: Event updated
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Event"
+                "404":
+                    description: Event not found
+components:
+    schemas:
+        Member:
+            type: object
+            required:
+                - userId
+                - name
+                - graduationYear
+                - email
+                - profilePictureUrl
+                - linkedinUrl
+                - githubUrl
+                - resumeUrl
+                - bio
+                - role
+                - active
+                - dateJoined
+                - dateLeft
+            properties:
+                userId:
+                    type: integer
+                name:
+                    type: string
+                graduationYear:
+                    type: integer
+                email:
+                    type: string
+                profilePictureUrl:
+                    type: string
+                linkedinUrl:
+                    type: string
+                githubUrl:
+                    type: string
+                resumeUrl:
+                    type: string
+                bio:
+                    type: string
+                role:
+                    type: string
+                active:
+                    type: boolean
+                dateJoined:
+                    type: integer
+                dateLeft:
+                    type: integer
+        Project:
+            type: object
+            required:
+                - projectId
+                - members
+                - githubUrl
+                - description
+                - projectPictureUrl
+                - projectCategory
+                - active
+                - name
+                - dateStarted
+                - dateEnded
+                - projectManager
+            properties:
+                projectId:
+                    type: integer
+                members:
+                    type: string
+                githubUrl:
+                    type: string
+                description:
+                    type: string
+                projectPictureUrl:
+                    type: string
+                projectCategory:
+                    type: string
+                active:
+                    type: boolean
+                name:
+                    type: string
+                dateStarted:
+                    type: integer
+                dateEnded:
+                    type: integer
+                projectManager:
+                    type: integer
+        Event:
+            type: object
+            required:
+                - eventId
+                - numAttendees
+                - date
+                - description
+                - eventPictureUrl
+                - location
+                - eventName
+                - sponsers
+            properties:
+                eventId:
+                    type: integer
+                numAttendees:
+                    type: integer
+                date:
+                    type: integer
+                description:
+                    type: string
+                eventPictureUrl:
+                    type: string
+                location:
+                    type: string
+                eventName:
+                    type: string
+                sponsers:
+                    type: string
