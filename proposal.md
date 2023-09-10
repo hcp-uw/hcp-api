@@ -82,11 +82,15 @@ Azure offers a `12-month` free trial for their VMs.
 ### AWS
 
 ```
-t4g.nano, 2vCPU, 0.5 GiB Memory: $3.07/month
+on-demand t4g.nano, 2vCPU, 0.5 GiB Memory: $3.07/month
 25 gb network egress: $2.25/month
 EBS, 1 gb, 100 mb/s : $0.08/month
 
 total: $5.40/month
 ```
 
+These figures can be reduced to as low as `$2.50/month` by commiting to a 1-year or 3-year term and paying up front. (`$22.9` for 1 year, or `$42.05` for 3 years). AWS also offers a `12-month` free trial for their VMs.
 
+## Conclusion
+
+AWS is the cheapest option. The actual cost of hosting our application may differ depending on memory constraints, but the cost will stay relatively low (< $10/month). Before deploying we will need to do some load testing to determine the actual memory requirements of running SpringBoot at approximate peak volume, which we can then use to determine the cheapest hardware to run our server on.
