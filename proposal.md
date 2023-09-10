@@ -1,6 +1,5 @@
 # Hosting Services
 
-
 ## Traffic Capacity Planning
 
 We need a cloud provider that will be able to handle peak loads of up to ~`40` concurrent users making ~`3` requests/sec, or in other words, ~`120` requests/sec.
@@ -60,6 +59,8 @@ GCP's always free tier with an e2-micro allows for up to 1 gb network egress eac
 e2-micro: $6.11/month
 ephemeral public IP: $2.92/month
 10 gb (minimum) persistant disk: $1.00/month
+
+total: $10.03/month
 ```
 
 GCP also offers a `9-month $300` free-trial period, but this would be very temporary.
@@ -72,6 +73,8 @@ Azure does not offer an always-free tier
 A0, 1 Core, 0.75 GB RAM: $13.14/month
 < 100 gb network egress: FREE
 4 GiB (minimum) persistent disk: $0.30/month
+
+total: $13.44/month
 ```
 
 Azure offers a `12-month` free trial for their VMs.
@@ -80,7 +83,10 @@ Azure offers a `12-month` free trial for their VMs.
 
 ```
 t4g.nano, 2vCPU, 0.5 GiB Memory: $3.07/month
+25 gb network egress: $2.25/month
+EBS, 1 gb, 100 mb/s : $0.08/month
 
+total: $5.40/month
 ```
 
 
