@@ -412,7 +412,7 @@ components:
                 - eventPictureUrl
                 - location
                 - eventName
-                - sponsers
+                - sponsors
             properties:
                 eventId:
                     type: integer
@@ -428,5 +428,5 @@ components:
                     type: string
                 eventName:
                     type: string
-                sponsers:
+                sponsors:
                     type: string
